@@ -2,23 +2,23 @@ pipeline {
   agent any
 
   stages {
-    stage('Lint & Unit Test') {
 
-        stage('Clean') {
-          steps {
-            // We use checkstyle gradle plugin to perform this
-            sh './gradlew clean'
-          }
-        }
 
-        stage('Build') {
-          steps {
-            // Execute your Unit Test
-            sh './gradlew build'
-          }
-        }
-
+    stage('Clean') {
+      steps {
+        // We use checkstyle gradle plugin to perform this
+        sh './gradlew clean'
+      }
     }
+
+    stage('Build') {
+      steps {
+        // Execute your Unit Test
+        sh './gradlew build'
+      }
+    }
+
+
 
 //     stage('UI Testing') {
 //       steps {

@@ -3,21 +3,21 @@ pipeline {
 
   stages {
     stage('Lint & Unit Test') {
-      parallel {
-        stage('checkStyle') {
+
+        stage('Clean') {
           steps {
             // We use checkstyle gradle plugin to perform this
-            sh './gradlew checkStyle'
+            sh './gradlew clean'
           }
         }
 
-        stage('Unit Test') {
+        stage('Build') {
           steps {
             // Execute your Unit Test
-            sh './gradlew clean build'
+            sh './gradlew build'
           }
         }
-      }
+
     }
 
 //     stage('UI Testing') {

@@ -18,6 +18,13 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      steps {
+        // Execute your Unit Test
+        sh './gradlew assembleDebug'
+      }
+    }
+
 
 
 //     stage('UI Testing') {
